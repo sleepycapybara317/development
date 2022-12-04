@@ -37,7 +37,7 @@
       "price": 5.45,      
       "calories": 10, 
       "temp": "cold",
-      "image": "src/images/nitro.png"
+      "image": "images/nitro.png"
     },
     {
       "name": "Mocha Frappuccino",
