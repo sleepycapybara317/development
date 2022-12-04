@@ -1,0 +1,98 @@
+[
+    {
+      "name": "Iced Peach Green Tea Lemonade",
+      "description": "A drink almost as powerful as Yasemin",
+      "price": 3.75,
+      "calories": 70, 
+      "temp": "cold",
+      "image": "images/anika.png"
+    },
+    {
+      "name": "Cold Brew",
+      "description": "Better than iced coffee",
+      "price": 4.45,      
+      "calories": 5, 
+      "temp": "cold",
+      "image": "images/aubrey.png"
+    },
+    {
+      "name": "Iced Matcha Latte",
+      "description": "A fluffy matcha layered on a bed of ice",
+      "price": 4.95,      
+      "calories": 200, 
+      "temp": "cold",
+      "image": "images/connie.png"
+    },
+    {
+      "name": "Iced Latte",
+      "description": "Espresso, milk, ice, straw",
+      "price": 4.65,      
+      "calories": 130, 
+      "temp": "cold",
+      "image": "images/dylan.png"
+    },
+    {
+      "name": "Nitro Cold Brew",
+      "description": "Creamy nitrogen-infused coffee",
+      "price": 5.45,      
+      "calories": 10, 
+      "temp": "cold",
+      "image": "images/isaac.png"
+    },
+    {
+      "name": "Mocha Frappuccino",
+      "description": "Basically a chocolate coffee milkshake",
+      "price": 5.45,      
+      "calories": 385, 
+      "temp": "cold",
+      "image": "images/jeff.png"
+    },
+    {
+      "name": "Mocha",
+      "description": "Hot chocolate, espresso, and froth",
+      "price": 5.25,
+      "calories": 380, 
+      "temp": "hot",
+      "image": "images/jenny.png"
+    },
+    {
+      "name": "Hot Chocolate",
+      "description": "A classic",
+      "price": 4.95,     
+      "calories": 370, 
+      "temp": "hot",
+      "image": "images/jessie.png"
+    },
+    {
+      "name": "Steamed Apple Cider",
+      "description": "Perfect fall, caffiene-free pick-me-up",
+      "price": 2.95,     
+      "calories": 220, 
+      "temp": "hot",
+      "image": "images/kelly.png"
+    },
+    {
+      "name": "Medium Roast Black Coffee",
+      "description": "Real coffee...not for the faint of heart",
+      "price": 2.95,     
+      "calories": 0, 
+      "temp": "hot",
+      "image": "images/lauren.png"
+    },
+    {
+      "name": "Matcha Latte",
+      "description": "Grassy yum with no jitters",
+      "price": 4.75,
+      "calories": 240, 
+      "temp": "hot",
+      "image": "images/melissa.png"
+    },
+    {
+      "name": "Latte",
+      "description": "Frothy, milky coffee",
+      "price": 4.50,     
+      "calories": 190, 
+      "temp": "hot",
+      "image": "images/miku.png"
+    }
+  ]
