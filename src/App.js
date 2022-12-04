@@ -5,7 +5,7 @@ import DrinkItem from "./components/DrinkItem";
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 drinkData.forEach((item) => {
-  item.image = process.env.PUBLIC_URL + "/" + item.image;
+  item.image = process.env.PUBLIC_URL + "/src/" + item.image;
   console.log(item.image)
 });
 /* ############################################################## */
