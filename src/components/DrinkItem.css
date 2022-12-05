@@ -65,12 +65,25 @@
   .cart-container {
     position: absolute;
     display: flex;
-    top: 80px;
+    top: 230px;
     right: 0;
     width: 30%;
     flex-direction: column;
     align-items: center;
     text-align: left;
+    background-color:rgba(240, 128, 128, 0.659);
+    border-radius: 10px;
+  }
+
+  .filter-container {
+    position: absolute;
+    display: flex;
+    top: 80px;
+    right: 0;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
     background-color:rgba(240, 128, 128, 0.659);
     border-radius: 10px;
   }

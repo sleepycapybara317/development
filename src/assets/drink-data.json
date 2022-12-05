@@ -1,5 +1,6 @@
 [
     {
+      "id": 1,
       "name": "Iced Peach Green Tea Lemonade",
       "description": "A drink almost as powerful as Yasemin",
       "price": 3.75,
@@ -7,7 +8,8 @@
       "temp": "cold",
       "image": "images/iced peach green tea.png"
     },
-    {
+    { 
+      "id": 2,
       "name": "Cold Brew",
       "description": "Better than iced coffee",
       "price": 4.45,      
@@ -16,6 +18,7 @@
       "image": "images/cold brew.png"
     },
     {
+      "id": 3, 
       "name": "Iced Matcha Latte",
       "description": "A fluffy matcha layered on a bed of ice",
       "price": 4.95,      
@@ -24,6 +27,7 @@
       "image": "images/iced matcha.png"
     },
     {
+      "id": 4,
       "name": "Iced Latte",
       "description": "Espresso, milk, ice, straw",
       "price": 4.65,      
@@ -32,6 +36,7 @@
       "image": "images/iced latte.png"
     },
     {
+      "id": 5,
       "name": "Nitro Cold Brew",
       "description": "Creamy nitrogen-infused coffee",
       "price": 5.45,      
@@ -40,6 +45,7 @@
       "image": "images/nitro.png"
     },
     {
+      "id": 6,
       "name": "Mocha Frappuccino",
       "description": "Basically a chocolate coffee milkshake",
       "price": 5.45,      
@@ -48,6 +54,7 @@
       "image": "images/mocha frappe.png"
     },
     {
+      "id": 7,
       "name": "Mocha",
       "description": "Hot chocolate, espresso, and froth",
       "price": 5.25,
@@ -56,6 +63,7 @@
       "image": "images/mocha.png"
     },
     {
+      "id": 8,
       "name": "Hot Chocolate",
       "description": "A classic",
       "price": 4.95,     
@@ -64,6 +72,7 @@
       "image": "images/hot chocolate.png"
     },
     {
+      "id": 9,
       "name": "Steamed Apple Cider",
       "description": "Perfect fall, caffiene-free pick-me-up",
       "price": 2.95,     
@@ -72,14 +81,16 @@
       "image": "images/steamed apple cider.png"
     },
     {
+      "id": 10,
       "name": "Medium Roast Black Coffee",
       "description": "Real coffee...not for the faint of heart",
-      "price": 2.95,     
+      "price": 3.05,     
       "calories": 0, 
       "temp": "hot",
       "image": "images/black coffee.png"
     },
     {
+      "id": 11,
       "name": "Matcha Latte",
       "description": "Grassy yum with no jitters",
       "price": 4.75,
@@ -88,6 +99,7 @@
       "image": "images/matcha.png"
     },
     {
+      "id": 12,
       "name": "Latte",
       "description": "Frothy, milky coffee",
       "price": 4.50,     
