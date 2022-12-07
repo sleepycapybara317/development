@@ -41,7 +41,12 @@
   .price {
     font-weight: bold;
     font-style: italic;
-    margin: 20%;
+    margin: 10%;
+  }
+
+  .cals {
+    font-style: italic;
+    margin: 10%;
   }
   
   .addButton {
