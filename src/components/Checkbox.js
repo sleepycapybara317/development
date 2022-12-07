@@ -13,3 +13,6 @@ export default function Checkbox ({ label }) {
       </div>
     );
   };
+
+
+// component code adapted from: https://blog.logrocket.com/building-custom-checkbox-react/

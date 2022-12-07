@@ -46,21 +46,21 @@ function App() {
 
   let sorted = drinkData;
   
-  const sortPrices = () => {
-    let sorted = [...lst].sort((a,b) => {
-      return a.price - b.price;
-    });
+  // const sortPrices = () => {
+  //   let sorted = [...lst].sort((a,b) => {
+  //     return a.price - b.price;
+  //   });
 
     // console.log(sorted)
     // console.log(drinkData)
     // setIsSorted(true);
-    setLst(sorted);
-  }
-
-  // const reset = () => {
-  //   sorted = [...drinkData];
-  //   setIsSorted(false);
+  //   setLst(sorted);
   // }
+
+  const reset = () => {
+    sorted = [...drinkData];
+    setSort("none");
+  }
 
   const filter = (temp) => {
     let filtered = [...drinkData].filter(function (item) {
@@ -71,6 +71,32 @@ function App() {
     setLst(filtered)
   }
 
+  const [sort, setSort] = React.useState("none");
+  const handlePriceAscend = () => {
+    let sorted = [...lst].sort((a,b) => {
+      return a.price - b.price;
+    });
+    setLst(sorted);
+    setSort("ascend");
+  };
+
+  const handlePriceDescend = () => {
+    let sorted = [...lst].sort((a,b) => {
+      return b.price - a.price;
+    });
+    setLst(sorted);
+    setSort("descend");
+  };
+
+  const RadioButton = ({ label, value, onChange }) => {
+    return (
+      <label>
+        <input type="radio" checked={value} onChange={onChange} />
+        {label}
+      </label>
+    );
+  };
+
   return (
     <div className="App">
       <h1>Queen Bean Café</h1> {}
@@ -80,11 +106,26 @@ function App() {
         </p> 
       ))}
    
-      <div className="filter-container">
-        {/* <button onClick={sortPrices}>
-        SORT By Price (low - high)
-        </button> */}
-        <Checkbox label = "Sort (Price Low - High)" />
+      <div className="filter-container"> <h3>Sort By:</h3>
+        <RadioButton
+          label="None"
+          value={sort === "none"}
+          onChange={reset}
+        />
+        <RadioButton
+          label="Price Low to High"
+          value={sort === "ascend"}
+          onChange={handlePriceAscend}
+        />
+        <RadioButton
+          label="Price High to Low"
+          value={sort === "descend"}
+          onChange={handlePriceDescend}
+        />
+
+        {/* <Checkbox label = "Sort (Price Low - High)" /> */}
+        <h3>Filters</h3>
+        <h4>Temperature</h4>
         <button onClick={() => (filter("cold"))}>
         COLD beverages
         </button>
