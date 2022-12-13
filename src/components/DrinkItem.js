@@ -4,6 +4,7 @@ import "./DrinkItem.css";
 export default function DrinkItem(props) {
     const add = props.addToCart;
     const temp = props.temp;
+    const type = props.type;
     const price = props.price;
     return(
     <div className="itemCard">

@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-
-export default function Checkbox ({ label }) {
-    const [check, setCheck] = useState(false);
+export default function Checkbox ({ label, value, onChange }) {
     return (
       <div className="checkbox-wrapper">
         <label>
-          <input type="checkbox" checked={check}
-          onChange={() => setCheck((prev) => !prev)}/>
-          <span>{label}</span>
-          <p>{check ? "Sorted" : "Unsorted"}</p>
+        <input type="checkbox" onChange={onChange} />
+        {label}
         </label>
       </div>
     );
   };
-
 
 // component code adapted from: https://blog.logrocket.com/building-custom-checkbox-react/

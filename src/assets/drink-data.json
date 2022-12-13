@@ -6,6 +6,7 @@
       "price": 3.75,
       "calories": 70, 
       "temp": "cold",
+      "type": "tea",
       "image": "images/iced peach green tea.png"
     },
     { 
@@ -15,6 +16,7 @@
       "price": 4.45,      
       "calories": 5, 
       "temp": "cold",
+      "type": "coffee",
       "image": "images/cold brew.png"
     },
     {
@@ -24,6 +26,7 @@
       "price": 4.95,      
       "calories": 200, 
       "temp": "cold",
+      "type": "tea",
       "image": "images/iced matcha.png"
     },
     {
@@ -33,6 +36,7 @@
       "price": 4.65,      
       "calories": 130, 
       "temp": "cold",
+      "type": "coffee",
       "image": "images/iced latte.png"
     },
     {
@@ -42,6 +46,7 @@
       "price": 5.45,      
       "calories": 10, 
       "temp": "cold",
+      "type": "coffee",
       "image": "images/nitro.png"
     },
     {
@@ -51,6 +56,7 @@
       "price": 5.45,      
       "calories": 385, 
       "temp": "cold",
+      "type": "coffee",
       "image": "images/mocha frappe.png"
     },
     {
@@ -60,6 +66,7 @@
       "price": 5.25,
       "calories": 380, 
       "temp": "hot",
+      "type": "coffee",
       "image": "images/mocha.png"
     },
     {
@@ -69,6 +76,7 @@
       "price": 4.95,     
       "calories": 370, 
       "temp": "hot",
+      "type": "other",
       "image": "images/hot chocolate.png"
     },
     {
@@ -78,6 +86,7 @@
       "price": 2.95,     
       "calories": 220, 
       "temp": "hot",
+      "type": "other",
       "image": "images/steamed apple cider.png"
     },
     {
@@ -87,6 +96,7 @@
       "price": 3.05,     
       "calories": 0, 
       "temp": "hot",
+      "type": "coffee",
       "image": "images/black coffee.png"
     },
     {
@@ -96,6 +106,7 @@
       "price": 4.75,
       "calories": 240, 
       "temp": "hot",
+      "type": "tea",
       "image": "images/matcha.png"
     },
     {
@@ -105,6 +116,7 @@
       "price": 4.50,     
       "calories": 190, 
       "temp": "hot",
+      "type": "coffee",
       "image": "images/latte.png"
     }
   ]

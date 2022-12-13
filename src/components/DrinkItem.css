@@ -51,6 +51,7 @@
   
   .addButton {
     position: absolute;
+    margin: 5px;
     margin: 200px;
     background-color: lavenderblush;
     text-align: center;
@@ -70,7 +71,7 @@
   .cart-container {
     position: absolute;
     display: flex;
-    top: 230px;
+    top: 400px;
     right: 0;
     width: 30%;
     flex-direction: column;
