@@ -120,7 +120,8 @@ function App() {
       });
     }
     else {
-      sorted = [...drinkData];
+      // sorted = [...drinkData];
+      sorted = newLst;
     }
     // console.log(sorted);
     // setSort(str);
@@ -162,10 +163,22 @@ function App() {
 
         <h4>Beverage Type</h4>
         <Checkbox 
-          id = "coffee"
-          label = "coffee" 
+          id = "Coffee"
+          label = "Coffee" 
           value={typeFilters["coffee"]}
           onChange={() => filterTypes("coffee")}
+          />
+        <Checkbox 
+          id = "Tea"
+          label = "Tea" 
+          value={typeFilters["tea"]}
+          onChange={() => filterTypes("tea")}
+          />
+        <Checkbox 
+          id = "Other"
+          label = "Other" 
+          value={typeFilters["other"]}
+          onChange={() => filterTypes("other")}
           />
         
         <h3>Sort By:</h3>
@@ -186,15 +199,7 @@ function App() {
         />
         <button onClick={reset}>
         Reset
-        </button> 
-        {/* <h3>Beverage Type</h3>
-        Coffee
-        Tea
-        Other
-        Show All */}
-        {/* <h3>Temperature</h3> */}
-        {/* <h4>Hot</h4>
-        <h4>Cold</h4> */}
+        </button>
       </div>
 
       <div className="cart-container">

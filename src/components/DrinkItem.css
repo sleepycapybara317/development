@@ -71,7 +71,7 @@
   .cart-container {
     position: absolute;
     display: flex;
-    top: 400px;
+    top: 520px;
     right: 0;
     width: 30%;
     flex-direction: column;
