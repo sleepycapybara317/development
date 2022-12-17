@@ -41,7 +41,7 @@
   .price {
     font-weight: bold;
     font-style: italic;
-    margin: 10%;
+    /* margin: 0%; */
   }
 
   .cals {
@@ -52,10 +52,10 @@
   .addButton {
     position: absolute;
     margin: 5px;
-    margin: 200px;
+    margin: 220px;
     background-color: lavenderblush;
     text-align: center;
-    padding: 10px 10px;
+    /* padding: 10px 10px; */
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
@@ -64,6 +64,44 @@
   }
 
   .addButton:hover {
+    background-color: powderblue;
+    color: black;
+  }
+
+  .removeButton {
+    position: absolute;
+    margin: 5px;
+    margin: 190px;
+    background-color: lavenderblush;
+    text-align: center;
+    /* padding: 10px 10px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+  }
+
+  .removeButton:hover {
+    background-color: powderblue;
+    color: black;
+  }
+
+  .resetButton {
+    /* position: absolute; */
+    margin: 5px;
+    /* margin: 190px; */
+    background-color: lavenderblush;
+    text-align: center;
+    /* padding: 10px 10px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+  }
+
+  .resetButton:hover {
     background-color: powderblue;
     color: black;
   }

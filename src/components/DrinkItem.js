@@ -3,6 +3,7 @@ import "./DrinkItem.css";
 // TODO: create a component that displays a single bakery item
 export default function DrinkItem(props) {
     const add = props.addToCart;
+    const remove = props.remove;
     const temp = props.temp;
     const type = props.type;
     const price = props.price;
@@ -18,6 +19,9 @@ export default function DrinkItem(props) {
             <div className="price">${price}</div>
             <button onClick={() => (add(props.name, price))} className="addButton">
             Add to Cart
+            </button>
+            <button onClick={() => (remove(props.name, price))} className="removeButton">
+            Remove from Cart
             </button>
         </div>
     </div>

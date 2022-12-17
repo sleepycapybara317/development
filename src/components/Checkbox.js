@@ -2,7 +2,7 @@ export default function Checkbox ({ label, value, onChange }) {
     return (
       <div className="checkbox-wrapper">
         <label>
-        <input type="checkbox" onChange={onChange} />
+        <input type="checkbox" onChange={onChange} checked={value}/>
         {label}
         </label>
       </div>

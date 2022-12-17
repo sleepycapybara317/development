@@ -12,7 +12,7 @@ function App() {
   const [lst, setLst] = useState([...drinkData]);
   const [sort, setSort] = React.useState("none");
   const [tempFilters, setTempFilters] = React.useState({"hot": false, "cold": false});
-  const [typeFilters, setTypeFilters] = React.useState([{"tea": false, "coffee": false, "other": false}]);
+  const [typeFilters, setTypeFilters] = React.useState({"tea": false, "coffee": false, "other": false});
 
   const addItemToCart = (name, price) => {
     const updatedCart = {...cart};
@@ -21,17 +21,37 @@ function App() {
     } else {
       updatedCart[name] = {name: name, quantity: updatedCart[name].quantity+1};
     }
-    setCart(updatedCart)
-
     setTotalPrice((p) => price + p);  // add price to total price
     setTotalQuantity((q) => q + 1); // add 1 to total quantity
+    setCart(updatedCart)
+  };
+
+  const remove = (name, price) => {
+    let updatedCart = {...cart};
+    if (typeof updatedCart[name] != 'undefined') {
+      let removed = {}
+      // decrease quantity or remove from cart dictionary
+      Object.keys(updatedCart).forEach((key) => {
+        if (updatedCart[key].name == name) {
+          let quant = updatedCart[key].quantity
+          if (quant > 1) {
+            removed[key] = {name: name, quantity: updatedCart[key].quantity-1}
+          }
+        }
+        else {
+          removed[key] = {name: updatedCart[key].name, quantity: updatedCart[key].quantity}
+        }
+      })
+      // console.log(removed)
+      setTotalPrice((p) => p - price);  // sub price from total price
+      setTotalQuantity((q) => q - 1); // sub 1 from total quantity
+      setCart(removed)
+    }
   };
 
   const reset = () => {
-    // how to uncheck checkboxes ???
-    // $('input[type=checkbox]').prop('checked', false);
-
     setTempFilters({"hot": false, "cold": false});
+    setTypeFilters({"tea": false, "coffee": false, "other": false});
     setSort("none");
     setLst([...drinkData]);
   }
@@ -43,20 +63,20 @@ function App() {
 
     var toApply = [] // list of temps -- hot, cold
     Object.keys(updatedFilters).forEach((key) => {
-      if (updatedFilters[key]) {toApply.push(key)}
+      if (updatedFilters[key]) {toApply.push(key);}
     })
 
     if (toApply.length === 0) {
       setLst([...drinkData]);
-      sortAgain([...drinkData])
+      sortAgain([...drinkData], "temp")
     }
     else {
-      const updatedLst = [...drinkData];
+      const updatedLst = [...drinkData]; //...drinkData
       const ans = [];
       updatedLst.forEach((drink) => 
         toApply.forEach((tempFilter) => {if (drink.temp === tempFilter) {ans.push(drink)}}))
         setLst(ans);
-        sortAgain(ans)
+        sortAgain(ans, "temp")
     }
     setTempFilters(updatedFilters);
   }
@@ -72,7 +92,7 @@ function App() {
 
     if (toApply.length === 0) {
       setLst([...drinkData]);
-      sortAgain([...drinkData])
+      sortAgain([...drinkData], "type")
     }
     else {
       const updatedLst = [...drinkData];
@@ -80,8 +100,7 @@ function App() {
       updatedLst.forEach((drink) => 
         toApply.forEach((typeFilter) => {if (drink.type === typeFilter) {ans.push(drink)}}))
         // setLst(ans);
-        sortAgain(ans);
-        console.log(ans);
+      sortAgain(ans, "type");
         // console.log(lst);
     }
     setTypeFilters(updatedFilters);
@@ -106,34 +125,74 @@ function App() {
     setLst(sorted);
   }
 
-  const sortAgain = (newLst) => {
-    console.log(newLst);
+  const sortAgain = (newLst, filt) => {
+    // console.log(filt);
+    let filtered = [...newLst]
+    // console.log(filtered);
+
+    // RE-FILTER
+    if (filt === "temp") {
+      const updatedFilters = {...typeFilters};
+
+      var toApply = [] // list of temps -- hot, cold
+      Object.keys(updatedFilters).forEach((key) => {
+        if (updatedFilters[key]) {toApply.push(key)}
+      })
+
+      if (toApply.length > 0) {
+        const updatedLst = [...filtered];
+        const ans = [];
+        updatedLst.forEach((drink) => 
+        toApply.forEach((typeFilter) => {if (drink.type === typeFilter) {ans.push(drink)}}))
+        filtered = ans;
+      };
+    }
+    // console.log(filtered);
+
+    if (filt === "type") {
+      // set cold to true
+      const updatedFilters = {...tempFilters};
+
+      var toApply = [] // list of temps -- hot, cold
+      Object.keys(updatedFilters).forEach((key) => {
+        if (updatedFilters[key]) {toApply.push(key);}
+      })
+
+      if (toApply.length > 0) {
+        const updatedLst = [...filtered]; //...drinkData
+        const ans = [];
+        updatedLst.forEach((drink) => 
+        toApply.forEach((tempFilter) => {if (drink.temp === tempFilter) {ans.push(drink)}}))
+        filtered = ans;
+      };
+    }
+    // console.log(filtered);
+    
+    // RE-SORT
     let sorted = []
     if (sort === "ascend") {
-      sorted = [...newLst].sort((a,b) => {
+      sorted = filtered.sort((a,b) => {
         return a.price - b.price;
       });
     }
     else if (sort === "descend") {
-      sorted = [...newLst].sort((a,b) => {
+      sorted = filtered.sort((a,b) => {
         return b.price - a.price;
       });
     }
     else {
       // sorted = [...drinkData];
-      sorted = newLst;
+      sorted = filtered;
     }
     // console.log(sorted);
     // setSort(str);
     setLst(sorted);
   }
 
-  // how to FILTER then sort every time ???
   return (
     <div className="App">
       <h1>Queen Bean Café</h1> {}
       {lst.map((item) => ( // map drinkData to DrinkItem components
-        <p>
           <DrinkItem 
           name = {item.name} 
           image = {item.image} 
@@ -141,8 +200,9 @@ function App() {
           price = {item.price} 
           cals = {item.calories} 
           type = {item.type} 
-          addToCart = {addItemToCart}/>
-        </p> 
+          addToCart = {addItemToCart}
+          remove = {remove}
+          />
       ))}
    
       <div className="filter-container"> 
@@ -197,7 +257,7 @@ function App() {
           value={sort === "descend"}
           onChange={() => handleSort("descend")}
         />
-        <button onClick={reset}>
+        <button onClick={reset} className="resetButton">
         Reset
         </button>
       </div>
