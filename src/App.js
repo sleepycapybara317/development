@@ -194,6 +194,7 @@ function App() {
       <h1>Queen Bean Café</h1> {}
       {lst.map((item) => ( // map drinkData to DrinkItem components
           <DrinkItem 
+          key = {item.id}
           name = {item.name} 
           image = {item.image} 
           desc = {item.description} 
