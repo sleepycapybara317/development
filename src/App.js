@@ -9,6 +9,7 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [cart, setCart] = useState({});
+  
   const [lst, setLst] = useState([...drinkData]);
   const [sort, setSort] = React.useState("none");
   const [tempFilters, setTempFilters] = React.useState({"hot": false, "cold": false});
@@ -17,9 +18,9 @@ function App() {
   const addItemToCart = (name, price) => {
     const updatedCart = {...cart};
     if (typeof updatedCart[name] == 'undefined') {
-      updatedCart[name] = {name: name, quantity: 1};
+      updatedCart[name] = {name: name, quantity: 1, price: price};
     } else {
-      updatedCart[name] = {name: name, quantity: updatedCart[name].quantity+1};
+      updatedCart[name] = {name: name, quantity: updatedCart[name].quantity+1, price: price};
     }
     setTotalPrice((p) => price + p);  // add price to total price
     setTotalQuantity((q) => q + 1); // add 1 to total quantity
@@ -35,15 +36,19 @@ function App() {
         if (updatedCart[key].name == name) {
           let quant = updatedCart[key].quantity
           if (quant > 1) {
-            removed[key] = {name: name, quantity: updatedCart[key].quantity-1}
+            removed[key] = {name: name, quantity: updatedCart[key].quantity-1, price: updatedCart[key].price}
           }
         }
         else {
-          removed[key] = {name: updatedCart[key].name, quantity: updatedCart[key].quantity}
+          removed[key] = {name: updatedCart[key].name, quantity: updatedCart[key].quantity, price: updatedCart[key].price}
         }
       })
       // console.log(removed)
-      setTotalPrice((p) => p - price);  // sub price from total price
+      let newPrice = totalPrice - price
+      if (newPrice == 0) { // fix rounding errors
+        newPrice = 0
+      }
+      setTotalPrice(() => newPrice);  // sub price from total price
       setTotalQuantity((q) => q - 1); // sub 1 from total quantity
       setCart(removed)
     }
@@ -207,16 +212,16 @@ function App() {
       ))}
    
       <div className="filter-container"> 
-        <h3>Filters</h3>
+        <h3>Filters:</h3>
         <h4>Temperature</h4>
         <Checkbox 
-          id = "cold"
+          id = "Cold"
           label = "Cold" 
           value={tempFilters["cold"]}
           onChange={() => filterTemps("cold")}
           />
         <Checkbox 
-          id = "hot"
+          id = "Hot"
           label = "Hot"
           value={tempFilters["hot"]} // checked when include, otherwise false
           onChange={() => filterTemps("hot")}
@@ -267,7 +272,7 @@ function App() {
           <h2>My Cart ({totalQuantity})</h2>
           {Object.values(cart).map((item) => (
             <p>
-              {item.quantity}x {item.name}
+              {item.quantity}x {item.name} (${item.price})
             </p>
           ))}
           {/* {cart.map((item) => (

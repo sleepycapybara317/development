@@ -49,7 +49,7 @@
     margin: 10%;
   }
   
-  .addButton {
+  .removeButton {
     position: absolute;
     margin: 5px;
     margin: 220px;
@@ -63,12 +63,12 @@
     border-radius: 10px;
   }
 
-  .addButton:hover {
+  .removeButton:hover:hover {
     background-color: powderblue;
     color: black;
   }
 
-  .removeButton {
+  .addButton {
     position: absolute;
     margin: 5px;
     margin: 190px;
@@ -82,7 +82,7 @@
     border-radius: 10px;
   }
 
-  .removeButton:hover {
+  .addButton:hover {
     background-color: powderblue;
     color: black;
   }
